@@ -5,23 +5,24 @@ var cors = require('cors');
 
 var app = express();
 var port = 3000;
-var db = mongojs('');
-var collection = db.collection('');
+var db = mongojs('ecommerce');
+var collection = db.collection('products');
 var objectId = mongojs.objectId;
 
 app.use(bodyParser.json());
 
 app.post('/products', function(req, res, next) {
 	console.log('post');
+	collection.insert(req.body, function(err, response) {
+		return res.status(200).send(response);
+	});
 });
 
 app.get('/products', function(req, res, next) {
 	console.log('get');
+	collection.find({{}})
 })
 
-app.get('/products/:id', function(req, res, next) {
-	console.log("get numero dos");
-})
 
 app.put('/products/:id', function(req, res, next) {
 	console.log('put');
