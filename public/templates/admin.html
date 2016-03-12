@@ -1,0 +1,7 @@
+<div> 
+	<p>Admin Route</p>
+	<input type="text" placeholder="Add Product Name" ng-model="product.name">
+	<input type='text' placeholder="Add Product Price" ng-model="product.price">
+	<button ng-click='addProduct(product)'>Add Product</button>
+	<div ng-repeat='product in products'>{{product.name}}  {{product.price}} <button ng-click='removeProduct(product._id)'>Delete</button></div>
+</div>
